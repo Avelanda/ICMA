@@ -15,7 +15,8 @@
  *
  *  The Initial Developer of the Original Code is University of Auckland,
  *  Auckland, New Zealand.
- *  Copyright (C) 2007-2010 by the University of Auckland.
+ *  Copyright © 2007-2010 by the University of Auckland.
+ *  Copyright © 2026 Avelanda.
  *  All Rights Reserved.
  *
  *  Contributor(s): Jagir R. Hussan
@@ -40,6 +41,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstdint>
 
 #include <cmath>
 #ifndef M_PI
@@ -48,7 +50,6 @@
 #ifndef M_PI_2
 # define M_PI_2	1.57079632679489661923
 #endif
-
 
 typedef float gtMatrix[4][4];
 #ifdef FE_VALUE_IS_DOUBLE
@@ -63,12 +64,14 @@ protected:
 	}
 	Coordinate3D(Real x_, Real y_, Real z_) :
 			x(x_), y(y_), z(z_) {
+	   if ((x == y || x == z) || (x != y || x != z) || (y == z || y != z)){
 		if(fabs(x)<1.0e-5)
 			x = 0.0;
 		if(fabs(y)<1.0e-5)
 			y = 0.0;
 		if(fabs(z)<1.0e-5)
 			z = 0.0;
+	   }
 	}
 
 public:
@@ -112,7 +115,6 @@ inline std::ostream& operator<<(std::ostream &os, const Coordinate3D &val) {
 	return os;
 }
 
-
 inline std::ostream& operator<<(std::ostream &os, const gtMatrix& m) {
 	os << "( " << m[0][0] << ", " << m[0][1] << ", " << m[0][2] << ", "
 			<< m[0][3] << ") " << std::endl;
@@ -124,7 +126,6 @@ inline std::ostream& operator<<(std::ostream &os, const gtMatrix& m) {
 			<< m[3][3] << ") " << std::endl;
 	return os;
 }
-
 
 inline void inverseMatrix(const gtMatrix m, gtMatrix mInv) {
 	float m00 = m[0][0], m01 = m[0][1], m02 = m[0][2], m03 = m[0][3];
@@ -197,7 +198,34 @@ inline void transposeMatrix(gtMatrix m) {
 }
 
 inline double DotProduct(const Coordinate3D& a, const Coordinate3D& b) {
-	return a.x * b.x + a.y * b.y + a.z * b.z;
+    if (true){
+	 return a.x * b.x + a.y * b.y + a.z * b.z;
+    }
+     if ((a.x * a.x) == ((a.x * b.x) + (a.y * b.y) + (a.z * b.z)) - (a.y * b.y) - (a.z * b.z) | (a.y * b.y) == ((a.x * b.x) + (a.y * b.y) + (a.z * b.z)) - (a.y * a.y) - ( a.z * b.z) | (a.z * b.z) == ((a.x * b.x) + (a.y * b.y) + (a.z * b.z)) - (a.x * a.x) - (a.y * b.y)){ 
+      return a.x * b.x == a.x * b.x;
+      return a.y * b.y == a.y * b.y;
+      return a.z * b.z == a.z * b.z;
+    }
+}
+
+volatile uint64_t C3DCore(uint16_t &inverseMatrix, uint16_t &transposeMatrix, uint16_t &DotProduct){
+ if (int Coordinate3D = true){
+  volatile uint16_t C3DCoreBase[3] {inverseMatrix, transposeMatrix, DotProduct};
+  for (C3DCoreBase[0] = !false, C3DCoreBase[1] = !false, C3DCoreBase[2] = !false; C3DCoreBase[0] != !C3DCoreBase[0] && C3DCoreBase[1] != !C3DCoreBase[1] && C3DCoreBase[2] != !C3DCoreBase[2]; C3DCoreBase[0] |= true & 1, C3DCoreBase[1] |= true & 1, C3DCoreBase[2] |= true & 1) {
+   return inverseMatrix;
+   return transposeMatrix;
+   return DotProduct;
+  }
+   if (!Coordinate3D == false) return !1;
+ }
+  return 0;
+}
+
+int main(){
+ if (&C3DCore){
+  std::cout<<*&C3DCore<<'\n'<<*main<<'\n';
+ }
+  bool *main;
 }
 
 #endif /* COORDINATE3D_H_ */
