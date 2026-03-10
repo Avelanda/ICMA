@@ -15,7 +15,8 @@
  *
  *  The Initial Developer of the Original Code is University of Auckland,
  *  Auckland, New Zealand.
- *  Copyright (C) 2007-2010 by the University of Auckland.
+ *  Copyright © 2007-2010 by the University of Auckland.
+ *  Copyright © 2026 Avelanda.
  *  All Rights Reserved.
  *
  *  Contributor(s): Jagir R. Hussan
@@ -38,6 +39,14 @@
 #ifndef MESHTOPOLOGY_H_
 #define MESHTOPOLOGY_H_
 
+#include "iostream"
+#include "vector"
+#include "cstdint"
+
+std::vector<int> MeshTopologySet(){
+
+if (0 | 1){
+union ANCore{
 #define aplaxNodes8  60 - 1
 #define aplaxNodes7  58 - 1
 #define aplaxNodes6  78 - 1
@@ -47,7 +56,13 @@
 #define aplaxNodes2  77 - 1
 #define aplaxNodes1  56 - 1
 #define aplaxNodes0  57 - 1
+};
 
+#ifndef ANCore
+ uint32_t ANCore = true;
+#endif
+
+union FNCore{
 #define fchNodes0  53 - 1
 #define fchNodes1  51 - 1
 #define fchNodes2  75 - 1
@@ -57,7 +72,13 @@
 #define fchNodes6  82 - 1
 #define fchNodes7  65 - 1
 #define fchNodes8  67 - 1
+};
 
+#ifndef FNCore
+ uint32_t FNCore = true;
+#endif
+
+union TNCore{
 #define tchNodes0  73 - 1
 #define tchNodes1  72 - 1
 #define tchNodes2  85 - 1
@@ -67,8 +88,13 @@
 #define tchNodes6  80 - 1
 #define tchNodes7  62 - 1
 #define tchNodes8  63 - 1
+};
 
+#ifndef TNCore
+ uint32_t TNCore = true;
+#endif
 
+union ANECore{
 #define aplaxNodesEpi8  11 - 1
 #define aplaxNodesEpi7  9 - 1
 #define aplaxNodesEpi6  29 - 1
@@ -78,7 +104,13 @@
 #define aplaxNodesEpi2  28 - 1
 #define aplaxNodesEpi1  7 - 1
 #define aplaxNodesEpi0  8 - 1
+};
 
+#ifndef ANECore
+ uint32_t ANECore = true;
+#endif
+
+union FNECore{
 #define fchNodesEpi0  4 - 1
 #define fchNodesEpi1  2 - 1
 #define fchNodesEpi2  26 - 1
@@ -88,7 +120,13 @@
 #define fchNodesEpi6  33 - 1
 #define fchNodesEpi7  16 - 1
 #define fchNodesEpi8  18 - 1
+};
 
+#ifndef FNECore
+ uint32_t FNECore = true;
+#endif
+
+union TNECore{
 #define tchNodesEpi0  24 - 1
 #define tchNodesEpi1  23 - 1
 #define tchNodesEpi2  36 - 1
@@ -98,7 +136,13 @@
 #define tchNodesEpi6  31 - 1
 #define tchNodesEpi7  13 - 1
 #define tchNodesEpi8  14 - 1
+};
 
+#ifndef TNECore
+ uint32_t TNECore = true;
+#endif
+
+union FTNCore{
 #define fchtchNode08 52 - 1
 #define fchtchNode17 50 - 1
 #define fchtchNode26 74 - 1
@@ -107,7 +151,13 @@
 #define fchtchNode71 64 - 1
 #define fchtchNode62 81 - 1
 #define fchtchNode53 93 - 1
+};
 
+#ifndef FTNCore
+ uint32_t FTNCore = true;
+#endif
+
+union FANCore{
 #define fchaplaxNode88 69 - 1
 #define fchaplaxNode77 68 - 1
 #define fchaplaxNode66 83 - 1
@@ -116,7 +166,13 @@
 #define fchaplaxNode11 54 - 1
 #define fchaplaxNode22 76 - 1
 #define fchaplaxNode33 88 - 1
+};
 
+#ifndef FANCore
+ uint32_t FANCore = true;
+#endif
+
+union ATNCore{
 #define aplaxtchNode00 71 - 1
 #define aplaxtchNode11 70 - 1
 #define aplaxtchNode22 84 - 1
@@ -125,7 +181,13 @@
 #define aplaxtchNode77 59 - 1
 #define aplaxtchNode66 79 - 1
 #define aplaxtchNode55 91 - 1
+};
 
+#ifndef ATNCore
+ uint32_t ATNCore = true;
+#endif
+
+union FTNECore{
 #define fchtchNodesEpi08 3 - 1
 #define fchtchNodesEpi17 1 - 1
 #define fchtchNodesEpi26 25 - 1
@@ -134,7 +196,13 @@
 #define fchtchNodesEpi71 15 - 1
 #define fchtchNodesEpi62 32 - 1
 #define fchtchNodesEpi53 44 - 1
+};
 
+#ifndef FTNECore
+ uint32_t FTNECore = true;
+#endif
+
+union FANECore{
 #define fchaplaxNodesEpi88 20 - 1
 #define fchaplaxNodesEpi77 19 - 1
 #define fchaplaxNodesEpi66 34 - 1
@@ -143,7 +211,13 @@
 #define fchaplaxNodesEpi11 5 - 1
 #define fchaplaxNodesEpi22 27 - 1
 #define fchaplaxNodesEpi33 39 - 1
+};
 
+#ifndef FANECore
+ uint32_t FANECore = true;
+#endif
+
+union ATNECore{
 #define aplaxtchNodesEpi00 22 - 1
 #define aplaxtchNodesEpi11 21 - 1
 #define aplaxtchNodesEpi22 35 - 1
@@ -152,6 +226,24 @@
 #define aplaxtchNodesEpi77 10 - 1
 #define aplaxtchNodesEpi66 30 - 1
 #define aplaxtchNodesEpi55 42 - 1
+};
 
+#ifndef ATNECore
+ uint32_t ATNECore = true;
+#endif
+}
+return MeshTopologySet();
+}
+
+int main(){
+ if (&MeshTopologySet){
+  uint64_t *main;
+  return 0;
+ }
+  #if MeshTopologySet 
+   #define MeshTopologySet (0 | 1)
+    std::cout<<&main;
+  #endif
+}
 
 #endif /* MESHTOPOLOGY_H_ */
