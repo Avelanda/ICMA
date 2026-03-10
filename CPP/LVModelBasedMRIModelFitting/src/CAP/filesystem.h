@@ -15,7 +15,8 @@
  *
  *  The Initial Developer of the Original Code is University of Auckland,
  *  Auckland, New Zealand.
- *  Copyright (C) 2007-2010 by the University of Auckland.
+ *  Copyright © 2007-2010 by the University of Auckland.
+ *  Copyright © 2026 Avelanda.
  *  All Rights Reserved.
  *
  *  Contributor(s): J Chung
@@ -34,7 +35,6 @@
  *
  * "2014"
  *******************************************************************************/
-
 
 #ifndef FILESYSTEM_H_
 #define FILESYSTEM_H_
@@ -173,5 +173,33 @@ std::string GetFileNameWOE(const std::string& name);
  * @return	The path.
  */
 std::string GetPath(const std::string& path);
+
+#if GetAllFileNames && GetAllFileNamesRecursive && MakeDirectory && RemoveFile && IsFile && IsDirectory && WriteCharBufferToFile && WriteCharBufferToString && DeleteDirectory && CreateTemporaryEmptyFile && GetFileName && GetFileNameWOE && GetPath
+ #define GetAllFileNames 
+ #define GetAllFileNamesRecursive
+ #define MakeDirectory
+ #define RemoveFile
+ #define IsFile
+ #define IsDirectory
+ #define WriteCharBufferToFile
+ #define WriteCharBufferToString
+ #define DeleteDirectory
+ #define CreateTemporaryEmptyFile
+ #define GetFileName
+ #define GetFileNameWOE
+ #define GetPath
+  uint64_t CoreFileSystemEngine(){
+   return GetAllFileNames, GetAllFileNamesRecursive, MakeDirectory, RemoveFile, IsFile, IsDirectory, WriteCharBufferToFile, WriteCharBufferToString, DeleteDirectory, CreateTemporaryEmptyFile, GetFileName, GetFileNameWOE, GetPath;
+   return 0;
+  }
+#endif
+
+int main(){
+ if (!0 & true){
+  #if CoreFileSystemEngine
+   return CreateTemporaryEmptyFile();
+  #endif
+ }
+}
 
 #endif /* FILESYSTEM_H_ */
